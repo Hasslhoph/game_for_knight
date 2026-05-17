@@ -861,8 +861,11 @@ class Game:
         # Текстура камня (точки/неровности)
         random.seed(int(rect.x * 1000 + rect.y))
         for _ in range(5):
-            px = rect.x + random.randint(10, rect.width - 10)
-            py = rect.y + random.randint(15, rect.height - 15)
+            px = rect.x + random.randint(10, max(11, rect.width - 10))
+            if rect.height >= 30:
+                py = rect.y + random.randint(15, rect.height - 15)
+            else:
+                py = rect.y + rect.height // 2
             pygame.draw.circle(surface, COLOR_PLATFORM_HIGHLIGHT, (px, py), 2)
 
     def run(self):
