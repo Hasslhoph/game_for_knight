@@ -167,6 +167,7 @@ class Torch:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+        self.flame_timer = 0
         self.flame_offset = random.uniform(0, math.pi * 2)
         self.base_size = 15
 
